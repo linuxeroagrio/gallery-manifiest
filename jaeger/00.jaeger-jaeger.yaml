@@ -7,4 +7,4 @@ spec:
   allInOne:
     options:
       log-level: info
-  strategy: allInOne
+  strategy: allinone
