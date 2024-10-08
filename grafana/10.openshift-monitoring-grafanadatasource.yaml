@@ -1,0 +1,22 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: openshift-monitoring
+  namespace: gallery
+spec:
+  datasource:
+    access: proxy
+    editable: true
+    isDefault: true
+    jsonData:
+      httpHeaderName1: Authorization
+      timeInterval: 5s
+      tlsSkipVerify: true
+    name: OpenShift Monitoring
+    secureJsonData:
+      httpHeaderValue1: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkJHaGc5SHVVMEo3eEw0Z3c3LXhHSEFJME5mQlhGVXBpd3JYVFVTaWV5d0EifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTcyNzY3NjYwMywiaWF0IjoxNzI3NjczMDAzLCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6ImdhbGxlcnkiLCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiZ3JhZmFuYS1zYSIsInVpZCI6ImUyY2UxNjkxLWYxZGYtNGRmOC1hNjM5LTAyODg4NTE3NjNkNCJ9fSwibmJmIjoxNzI3NjczMDAzLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6Z2FsbGVyeTpncmFmYW5hLXNhIn0.KYuCfJkxVTHmyx1l_QDm0FcLMp3F-r52Jeu3Kb9tM9X279P_HVg1Sv7Vzs1R4pngWU-LyQe-hHa9-R_uiqhY2mdutKB3xUxFKJhDcQmoFWokJVbPXXeStpNskoZDPQ2TqPzMgmOCVili52UUew5z_iHFS2UmEf_hSbVGtOh_Xx8SHT8qef6v5hZJ9m4ulihohcsIM4VE1Fqh2Yck5mIDaV0kAUiYxACQCICeriGtVDCIIy0hN8ggneC_cSvEismOzrjKksTQpSnjpjPdIfh9aMR47CJ5G1kw4zIeyhU9pA3acsx0R7LfANRWGAhh8h5w0DU5xdc3-4CkIz4yIWe_gkjyvvA1z_2mcHfcG8binAoEq0pfzTwe_uVwU743MafXVggsXdtirO3lcLT1w3FePMINwR160lR-Tb7l_gS2ZkMnxuBi9BrHQTAcS278w3N8TqydATBzl1_lanTKsymbdtjIn5XhSm8BXk1YUEHZ-NQWCUe1ahdAud0_X7oPiQlPCtsirEyIZZPQezpBIpxbQ9zlDwKN35wdV5ywp4bJ93baGc-0NGsVTtb_nbp4KYhHzUUGQXJ726IXp8dU9QQteopACfaq8hqaJn52yqFbPI-2wvf9EjHN4RwUtGBfb_1zKNYLoMJsWBRmpHfE_Qi_xBDU-h191nb-fOk_xxm1Wbg
+    type: prometheus
+    url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana

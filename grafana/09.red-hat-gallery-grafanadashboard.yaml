@@ -1,0 +1,15 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: red-hat-gallery
+  namespace: gallery
+spec:
+  configMapRef:
+    key: dashboard.json
+    name: red-hat-gallery-dashboard-t7ftfh29m8
+  folder: Red Hat Gallery
+  instanceSelector:
+    matchLabels:
+      dashboards: grafana
